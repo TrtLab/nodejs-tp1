@@ -31,9 +31,6 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
     res.send("Order ID: " + req.params.id + " supprimé.")
 })
-router.get('*', (req, res) => {
-    res.send('Not found', 404)
-})
 
 
 module.exports = router
