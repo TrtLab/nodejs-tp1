@@ -2,6 +2,7 @@ const express = require('express')
 const { v4: uuidv4 } = require('uuid');
 const router = express.Router()
 
+
 // Middleware 
 router.use(function timelog(req, res, next) {
     console.log('Time: ', Date.now())
@@ -20,7 +21,7 @@ router.get('/:id', (req, res) => {
     res.send("Voici l'order avec l'ID: " + req.params.id)
 })
 // Create an order with UUID
-router.post('/new', (req, res) => {
+router.post('/', (req, res) => {
     let id = uuidv4();
     res.send("Order ID: " + id + " créé.")
 })
@@ -28,6 +29,7 @@ router.post('/new', (req, res) => {
 router.put('/:id', (req, res) => {
     res.send("Order ID: " + req.params.id + " modifié.")
 })
+// Delete an order
 router.delete('/:id', (req, res) => {
     res.send("Order ID: " + req.params.id + " supprimé.")
 })
