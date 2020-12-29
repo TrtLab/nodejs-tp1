@@ -1,6 +1,7 @@
 // DOCS
 // https://medium.com/@yugagrawal95/mongoose-mongodb-functions-for-crud-application-1f54d74f1b34
 
+const { query } = require('express');
 const express = require('express')
 const { v4: uuidv4 } = require('uuid'); // UUID that generates a single ID
 const Order = require('../models/order'); // DB Model
@@ -36,10 +37,10 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
     let id = uuidv4();
     let order = {
-        description: "Test d\'insertion",
-        imageUrl: "../images/image.png",
+        description: req.query.desc,
+        imageUrl: req.query.img,
         userId: String(id),
-        price: 20,
+        price: req.query.price,
     }
     // Modal object
     let newOrder = new Order(order)
@@ -53,7 +54,7 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
     let id = req.params.id
 
-    Order.updateOne({ userId: id, imageUrl: "New image Url"})
+    Order.updateOne({ userId: id, imageUrl: req.query.img})
     .then((data) => console.log(data))
     .catch((err) => console.log(err))
 

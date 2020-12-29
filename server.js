@@ -6,7 +6,7 @@ const app = express()
 const port = 3000;
 
 // Connection to the DB MongoDB Atlas
-mongoose.connect('mongodb+srv://Romaric:Cradle218195@cluster0.1n5ns.mongodb.net/orders?retryWrites=true&w=majority', 
+mongoose.connect('mongodb+srv://Romaric:PW@cluster0.1n5ns.mongodb.net/orders?retryWrites=true&w=majority', 
 {
     useNewUrlParser: true,
     useUnifiedTopology: true
