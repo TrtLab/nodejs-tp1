@@ -2,11 +2,12 @@ const express = require('express') // ExpressJS
 const orders = require('./routes/orders') // Orders's route
 const mongoose = require('mongoose') // Mongoose for easier management of databse & CRUD in MongoDB
 const BP = require('body-parser') // for CROS 
+require('dotenv').config()
 const app = express() 
 const port = 3000;
 
 // Connection to the DB MongoDB Atlas
-mongoose.connect('mongodb+srv://Romaric:PW@cluster0.1n5ns.mongodb.net/orders?retryWrites=true&w=majority', 
+mongoose.connect(process.env.DB_CONNECT, 
 {
     useNewUrlParser: true,
     useUnifiedTopology: true
