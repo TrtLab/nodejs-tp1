@@ -25,9 +25,11 @@ app.use((req, res, next) => {
     next()
 })
 
+app.set('view engine', 'ejs')
+
 // Initial route for homepage
 app.get('/', (req, res) => {
-    res.send('Bonjour Romaric Touroute !')
+    res.render('pages/index')
 })
 // Order's Route
 app.use('/orders', orders);

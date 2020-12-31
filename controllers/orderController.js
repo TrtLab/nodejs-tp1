@@ -4,7 +4,7 @@ const Order = require('../models/order');
 exports.findAll = (req, res) => {
     Order.find({})
     .then((data) => {
-        res.status(200).json(data)
+        res.status(200).render('../views/pages/orders-list', {orders: data})
     })
     .catch((err)=>{
         console.log(err);
